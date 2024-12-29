@@ -69,7 +69,31 @@ app.post('/upload', upload.single('file'), async (req, res) => {
       res.status(500).send('Error uploading file');
     }
   });
-  
+
+
+// API endpoint to get courses for a specific year
+app.get('/courses', async (req, res) => {
+  const { year } = req.query;
+
+  if (!year) {
+      return res.status(400).json({ error: 'Year parameter is required' });
+  }
+
+  try {
+      const courses = await File.find({ year: parseInt(year) });
+
+      if (courses.length === 0) {
+          return res.status(404).json({ message: 'No courses available for this year' });
+      }
+
+      res.json(courses);
+  } catch (error) {
+      console.error('Error fetching courses:', error);
+      res.status(500).json({ error: 'Failed to fetch courses' });
+  }
+});
+
+
 // app.get("/listing", (req,res)=>{
 
 // })

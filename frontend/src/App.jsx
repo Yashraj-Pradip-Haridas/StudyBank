@@ -1,10 +1,12 @@
 import './App.css'
+// import FileUpload from './components/FileUpload';
 import Courses from './Pages/Courses';
 import Years from './Pages/Years'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 function App() {
   return (
     <>
+    {/* <FileUpload/> */}
     <Router>
       <Routes>
         <Route path="/" element={<Years/>}/>
@@ -12,7 +14,7 @@ function App() {
         <Route path="/courses" element={<Courses/>}/>
       </Routes>
     </Router>
-    </>
+    </> 
   )
 }
 

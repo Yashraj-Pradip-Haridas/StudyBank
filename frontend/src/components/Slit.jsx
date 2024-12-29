@@ -1,4 +1,6 @@
-function Slit() {
+// import Courses from "../Pages/Courses";
+
+function Slit({course}) {
     return ( 
     <div className="w-96 flex p-2 border-2 m-2 ">
         <div>
@@ -6,7 +8,7 @@ function Slit() {
         </div>
         <div className=" border-l-2 mx-3 min-h-full"></div>
         <div className="text-left text-sm">
-            <p>Course Name</p>
+            <p>{course}</p>
             <p>Number of Credits</p>
         </div>
     </div> );
